@@ -1,8 +1,7 @@
-#To Do - Script to sort images in a folder based on their face profile
-# uninstall deepface and install from github
-
+#Script to sort images in a folder based on their face profile
+# ToDo: Really slow(lags the system) and inaccurate (enhance the accuracy and speed)
+# ToDo: check folder creation and folder picking for sorting images (issue with input and upload path names)
 import os
-import numpy as np
 import shutil
 from dotenv import load_dotenv
 from deepface import DeepFace as df
@@ -12,10 +11,10 @@ from utility import utils as ut
 load_dotenv()
 
 
-output_path = os.getenv('OUTPUT_PATH')
 input_path = os.getenv('INPUT_PATH')
+output_path = os.getenv('OUTPUT_PATH')
 
-
+os.makedirs(input_path, exist_ok=True)
 os.makedirs(output_path, exist_ok=True)
 
 

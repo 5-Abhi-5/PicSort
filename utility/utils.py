@@ -30,7 +30,7 @@ def generate_embedding():
                 continue
         else:
             print('Invalid image found:', image)
-            os.makedirs(output_path+'/invalid', exist_ok=True)
-            shutil.copy(input_path+'/'+image, output_path+'/invalid/'+image)
+            os.makedirs(output_path+'/INVALID', exist_ok=True)
+            shutil.copy(input_path+'/'+image, output_path+'INVALID/'+image)
             continue
     return db
