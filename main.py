@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile
 from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 from script import sorting_process
 import shutil
 import zipfile
@@ -16,9 +17,17 @@ app = FastAPI(
     title="PicSort API",
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 @app.get("/")
 async def root():
-    return {"Hey You've reached PicSort Backend!"}
+    return {"message":"Hey You've reached PicSort Backend!"}
 
 
 #input file is a zip file with folder containing images
